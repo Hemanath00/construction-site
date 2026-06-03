@@ -420,7 +420,12 @@
         <div class="form-row">
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="eg. +91 98400 12345" required />
+            <input
+  type="tel"
+  id="phone"
+  maxlength="10"
+  oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+  >
           </div>
           <div class="form-group">
             <label for="proj_type">Project Type</label>

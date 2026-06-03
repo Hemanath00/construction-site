@@ -97,22 +97,42 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert("Please enter a valid email");
-        return;
-      }
-      
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+if (!emailRegex.test(email)) {
+  alert("Please enter a valid Gmail address");
+  return;
+}
       // Phone validation
-      const phoneRegex = /^[\d\s+\-()]{10,}$/;
-      if (!phoneRegex.test(phone)) {
-        alert("Please enter a valid phone number");
-        return;
-      }
+      // Phone validation (10 digits only)
+const phoneRegex = /^\d{10}$/;
+
+if (!phoneRegex.test(phone)) {
+  alert("Please enter a valid 10-digit phone number");
+  return;
+}
+
+const nameRegex = /^[A-Za-z\s]+$/;
+if (!nameRegex.test(name)) {
+  alert("Name should contain only letters");
+  return;
+}
       
       // Success message
-      alert(`Thank you, ${name}! We will contact you shortly at ${email}`);
-      
+      const whatsappNumber = "916369378550"; // your number with country code
+
+const whatsappMessage = `Hello, I would like to enquire about construction services.
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Project Type: ${projType}
+Message: ${message}`;
+
+const whatsappURL =
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+window.open(whatsappURL, "_blank");
       // Reset form
       contactForm.reset();
     });
