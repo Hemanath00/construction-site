@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
 if (!emailRegex.test(email)) {
-  alert("Please enter a valid email address");
+  alert("Please enter a valid email Address (must be a Gmail address)");
   return;
 }
       // Phone validation
